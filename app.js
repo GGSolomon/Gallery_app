@@ -17,11 +17,12 @@ app.get('/', (req,res)=>{
 
 // route to handle image upload
 app.post('/upload', (req,res)=>{
-   upload(req,res, (err)=>{
+   upload(req, res, (err)=>{
        if (err){
            console.log(err)
+           res.render('index', {msg: err})
        }else{
-           console.log(req.file)
+           console.log(req.file);
            res.send('test');
        }
    })
